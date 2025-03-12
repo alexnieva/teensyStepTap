@@ -66,6 +66,7 @@ char COND11[12] = "COND11.TXT";
 char COND12[12] = "COND12.TXT";
 char COND13[12] = "COND13.TXT";
 char COND14[12] = "COND14.TXT";
+char CALIB[12] = "CALIB.TXT";
 
 // constants won't change. They're used here to set pin numbers:
 const int buttonPin = 4;         // the number of the pushbutton pin. Teensy 3.2 pin.
@@ -287,6 +288,12 @@ void loop() {
 
   if (active) { // active True or False comes from checkStartStopButton()
     switch (state){
+      case 0:
+      calibrateFSR();
+      if (current_t > prev_t) {
+        
+      }
+      break;
       case 1:  
       if (current_t > prev_t){
         if (trialStartTime == 0){
